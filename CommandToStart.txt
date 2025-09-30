@@ -1,0 +1,4 @@
+go into firebase folder
+firebase deploy
+
+Set-ExecutionPolicy RemoteSigned (if error and run as administrator)

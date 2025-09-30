@@ -1,0 +1,45 @@
+import string
+
+# Parameters are plain text phrase and the number of shifts wanting in the alphabet
+def simpleCipher(phrase, number):
+
+    # A list containing all characters
+    alphabet = string.ascii_letters
+
+    dict1 = {}
+    key = number
+
+    for i in range(len(alphabet)):
+        dict1[alphabet[i]] = alphabet[(i+key) % len(alphabet)]
+
+    plaintext = phrase
+    ciphertext = []
+
+    # loop to generate ciphertext
+
+    for char in plaintext:
+        if char in alphabet:
+            temp = dict1[char]
+            ciphertext.append(temp)
+    else:
+        temp = char
+        ciphertext.append(temp)
+    ciphertext = "".join(ciphertext)
+    print("Cipher Text is: ", ciphertext)
+
+simpleCipher("security is easy", 4)
+
+from collections import Counter
+
+def letter_frequencies(plaintext):
+    # Count letter frequencies, ignoring spaces and other non-letter characters
+    letter_freq = Counter(char for char in plaintext if char.isalpha())
+
+    # Return the frequency count of each letter
+    return letter_freq
+
+# Example usage
+plaintext = "security is easy"
+freq = letter_frequencies(plaintext)
+print("Letter frequencies:", freq)
+
